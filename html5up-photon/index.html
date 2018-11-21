@@ -227,7 +227,7 @@
 					[24.941059, 121.3484618],
 					[24.96678812, 121.3314183]
 				]
-
+				let map = null;
 				console.log(item[1]);
 				// for (let i = 0; i < item.length; i++) {
 				//   console.log(item[i]);
@@ -241,7 +241,7 @@
 						lng: 121.520430
 					};
 					// The map, centered at Uluru
-					let map = new google.maps.Map(
+					map = new google.maps.Map(
 						document.getElementById('map'), {
 							zoom: 10,
 							center: uluru
@@ -270,18 +270,21 @@
 				
 				select.change(function(){
 					let key = $(this).val();
-					
-					$.ajax({
-						type: "GET",
-						url: '新北市/' + key + '.json',
-						dataType: "jsonp",
-					}).done((res) =>{
-						console.log(res);
+					console.log(key);
+					$.getJSON('新北市/' + key + '.json',(res)=>{
+						let bounds = new google.maps.LatLngBounds();
+						res.forEach(element => {
+							let latlng = new google.maps.LatLng(element[0], element[1]);
+							bounds.extend(latlng);
+
+							map.fitBounds(bounds);
+							// console.log(bounds);
+						});
 					});
 				});
 
 			</script>
-			<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRlKIf59NjeFSec1glgJ9FvL_jpBHMlq8&callback=initMap"
+			<script async defer src="https://maps.googleapis.com/maps/api/js?key=輸入金鑰&callback=initMap"
 				 type="text/javascript"></script>
 
 	</body>
