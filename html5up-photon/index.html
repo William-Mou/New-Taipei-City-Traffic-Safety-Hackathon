@@ -9,11 +9,27 @@
 		<style>
 			#map {
 				position: relative;
-				height: 30rem;
+				height: 45rem;
 				width: 100%;
-			}	
+			}
+
+			#maptitle {
+				position: relative;
+				height: 5rem;
+				text-align: center;
+				background-color: #4686a0;
+				background-image: url("images/overlay2.png"), url("images/overlay3.svg"), linear-gradient(45deg, #9dc66b 5%, #4fa49a
+30%, #4361c2);
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			#title-text {
+				color: #ffffff;
+				margin: 0 0 0 0;
+			}
 		</style>
-		<title>Photon by HTML5 UP</title>
+		<title>新北市交通安全黑客松</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -27,9 +43,13 @@
 					<span class="icon major fa-cloud"></span>
 					<h1> 新北市交通安全黑客松</h1>
 					<ul class="actions special">
-						<li><a href="#one" class="button scrolly">Discover</a></li>
+						<li><a href="#maptitle" class="button scrolly">Discover</a></li>
 					</ul>
 				</div>
+			</section>
+
+			<section id = "maptitle" class="inner">
+				<h3 id="title-text">新北市死亡車禍(A1)標示地圖</h3>
 			</section>
 			<div class="row" id="one">
 				<div id="map" class="col-12"></div>
