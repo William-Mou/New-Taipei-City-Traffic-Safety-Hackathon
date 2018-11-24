@@ -2884,8 +2884,7 @@ input, select, textarea {
 /* Header */
 
 	#header {
-		margin-top: 9em; 
-		padding: 0em 0 9em 0 ;
+		padding: 9em 0 9em 0;
 		background-color: #4686a0;
 		color: rgba(255, 255, 255, 0.75);
 		background-attachment: fixed,							fixed,							fixed;
