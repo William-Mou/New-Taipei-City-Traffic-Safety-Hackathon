@@ -10,7 +10,9 @@
 			#map {
 				position: relative;
 				height: 45rem;
-				width: 100%;
+				width: 50%;
+				float: left;
+				display: block;
 			}
 
 			#maptitle {
@@ -73,7 +75,17 @@
 					transition: opacity 1s ease;
 					transition-delay: 0.5s;
 				}
-			
+
+			#tableinfo{
+				display: block;
+				width: 50%;
+				float: right;
+				height: 45rem;
+			}
+
+			#info {
+				height: 45rem;
+			}
 		</style>
 		<title>新北市交通安全黑客松</title>
 		<meta charset="utf-8" />
@@ -105,21 +117,20 @@
 
 				</select>
 			</section>
-			<div class="row" id="one">
+
+			<section id="info">
 				<div id="map" class="col-6"></div>
-			</div>
-			
-			<table>
-				<tr>
-					<td>鄉鎮市</td>
-					<td>年齡</td>
-					<td>肇事原因</td>
-					<td>路段</td>
-					<td>飲酒情形</td>
-					<td>行動電話、電腦或其他相類功能裝置</td>
-				</tr>
-			</table>
-		
+				<table id="tableinfo">
+					<tr>
+						<td>鄉鎮市</td>
+						<td>年齡</td>
+						<td>肇事原因</td>
+						<td>路段</td>
+						<td>飲酒情形</td>
+						<td>行動電話、電腦或其他相類功能裝置</td>
+					</tr>
+				</table>
+			</section>
 		<!-- Footer -->
 			<section id="footer">
 				<ul class="icons">
