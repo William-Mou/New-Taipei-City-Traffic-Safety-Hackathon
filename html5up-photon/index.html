@@ -27,7 +27,7 @@
 				align-items: center;
 				padding-top: 1rem;
 			}
-			#title-text {
+			.title-text {
 				color: #ffffff;
 				margin: 0 0 0 0;
 			}
@@ -81,6 +81,7 @@
 				width: 50%;
 				float: right;
 				height: 45rem;
+				margin: 0;
 			}
 
 			#info {
@@ -88,9 +89,27 @@
 			}
 
 			td {
-				border-collapse: collapse;
-				
+				border-collapse: collapse;	
 			}
+
+			#injury_table_title {
+				width: 100%;
+				position: relative;
+				height: 6rem;
+				background-color: #4686a0;
+				background-image: url("images/overlay2.png"), linear-gradient(45deg, #9dc66b 5%, #4fa49a
+				30%, #4361c2);
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				padding-top: 1rem;
+			}
+
+			#inj-choose-section{
+				margin: 0 1rem 0 1rem;
+				width: 10rem;
+			}
+
 		</style>
 		<title>新北市交通安全黑客松</title>
 		<meta charset="utf-8" />
@@ -117,7 +136,7 @@
 			</section>
 
 			<section id = "maptitle" class="inner">
-				<h3 id="title-text">新北市死亡車禍(A1)標示地圖</h3>
+				<h3 class="title-text">新北市死亡車禍(A1)標示地圖</h3>
 				<select name="select" id="choose-section">
 
 				</select>
@@ -135,6 +154,11 @@
 						<td>行動電話、電腦或其他相類功能裝置</td>
 					</tr>
 				</table>
+			</section>
+
+			<section id="injury_table_title" class="inner">
+				<h3 class="title-text">新北市受傷車禍統計表格</h3>
+				<select name="select" id="inj-choose-section"></select>
 			</section>
 		<!-- Footer -->
 			<section id="footer">
@@ -334,10 +358,12 @@
 
 				// 選單
 				let select = $('#choose-section');
+				let inselect = $('#inj-choose-section');
 				let town = ['三峽區', '三芝區', '三重區', '中和區', '五股區', '八里區', '土城區', '坪林區', '平溪區', '新店區', '新莊區', '板橋區', '林口區', '樹林區', '永和區',
 			'汐止區', '泰山區', '淡水區', '深坑區', '烏來區', '瑞芳區', '石碇區', '石門區', '萬里區', '蘆洲區', '貢寮區', '金山區', '雙溪區', '鶯歌區'];
 				for (let i = 0; i < town.length; i++) {
 					select.append($('<option />').val(town[i]).text(town[i]));
+					inselect.append($('<option />').val(town[i]).text(town[i]));
 				}
 				
 				
