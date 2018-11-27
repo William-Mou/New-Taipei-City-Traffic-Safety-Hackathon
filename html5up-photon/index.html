@@ -105,6 +105,9 @@
 				margin: 0 1rem 0 1rem;
 				width: 10rem;
 			}
+			#choose-section, #inj-choose-section{
+				color: #ffffffd2;
+			}
 
 		</style>
 		<title>新北市交通安全黑客松</title>
@@ -149,7 +152,14 @@
 						<td>飲酒情形</td>
 						<td>3c產品使用情形</td>
 					</tr>
-					<tr class="t"></tr>
+					<tr class="t">
+						<td>三芝區</td>
+						<td>10</td>
+						<td>67尚未發現肇事因素</td>
+						<td>三芝區淡金公路</td>
+						<td>非駕駛人，未檢測</td>
+						<td>非汽(機)車駕駛人</td>
+					</tr>
 				</table>
 			</section>
 
@@ -353,7 +363,7 @@
 				// 選單
 				let select = $('#choose-section');
 				let inselect = $('#inj-choose-section');
-				let town = ['三峽區', '三芝區', '三重區', '中和區', '五股區', '八里區', '土城區', '坪林區', '平溪區', '新店區', '新莊區', '板橋區', '林口區', '樹林區', '永和區',
+				let town = ['三芝區', '三峽區', '三重區', '中和區', '五股區', '八里區', '土城區', '坪林區', '平溪區', '新店區', '新莊區', '板橋區', '林口區', '樹林區', '永和區',
 			'汐止區', '泰山區', '淡水區', '深坑區', '烏來區', '瑞芳區', '石碇區', '石門區', '萬里區', '蘆洲區', '貢寮區', '金山區', '雙溪區', '鶯歌區'];
 				for (let i = 0; i < town.length; i++) {
 					select.append($('<option />').val(town[i]).text(town[i]));
@@ -411,7 +421,7 @@
 				//bar
 				$(function () {
 						$(window).scroll(function () {
-							if ($(this).scrollTop() > 100) {          /* 要滑動到選單的距離 */
+							if ($(this).scrollTop() > 30) {          /* 要滑動到選單的距離 */
 								$('#bar').addClass('navFixed');   /* 幫選單加上固定效果 */
 							} else {
 								$('#bar').removeClass('navFixed'); /* 移除選單固定效果 */
@@ -419,7 +429,6 @@
 						});
 					});
 
-				
 			</script>
 			<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRlKIf59NjeFSec1glgJ9FvL_jpBHMlq8&callback=initMap"
 				 type="text/javascript"></script>
