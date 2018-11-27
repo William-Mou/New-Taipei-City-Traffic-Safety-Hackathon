@@ -1,9 +1,4 @@
 <!DOCTYPE HTML>
-<!--
-	Photon by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
 <html>
 	<head>
 		<style>
@@ -82,6 +77,7 @@
 				float: right;
 				height: 45rem;
 				margin: 0;
+				overflow: scroll;
 			}
 
 			#info {
@@ -151,8 +147,9 @@
 						<td>肇事原因</td>
 						<td>路段</td>
 						<td>飲酒情形</td>
-						<td>行動電話、電腦或其他相類功能裝置</td>
+						<td>3c產品使用情形</td>
 					</tr>
+					<tr class="t"></tr>
 				</table>
 			</section>
 
@@ -326,9 +323,6 @@
 				]
 				let map = null;
 				console.log(item[1]);
-				// for (let i = 0; i < item.length; i++) {
-				//   console.log(item[i]);
-				// }
 
 				// Initialize and add the map
 				function initMap() {
@@ -366,10 +360,20 @@
 					inselect.append($('<option />').val(town[i]).text(town[i]));
 				}
 				
+				let index = 0;
+				let dead_list = [];
+				$.getJSON('township_dead.json',res =>{
+					res.forEach(element =>{
+						dead_list[index] = element;
+						index++;
+						// console.log(element);
+					})
+				});
 				
+
 				select.change(function(){
 					let key = $(this).val();
-					console.log(key);
+					// console.log(key);
 					$.getJSON('新北市/' + key + '.json',(res)=>{
 						let bounds = new google.maps.LatLngBounds();
 						res.forEach(element => {
@@ -380,6 +384,28 @@
 							// console.log(bounds);
 						});
 					});
+					let $table = $('#tableinfo');
+
+					for(let i = 0; i < $('.t').length;i++){
+						$('.t').remove();
+					}
+					// console.log($('.t'));
+					dead_list.forEach(element =>{
+						if(element['鄉鎮市'] === key){
+							
+							
+							let app = `<tr class='t'>
+								<td>${element['鄉鎮市']}</td>
+								<td>${element['年齡']}</td>
+							<td>${element['肇事原因']}</td>
+							<td>${element['路段']}</td>
+							<td>${element['飲酒情形']}</td>
+							<td>${element['行動電話、電腦或其他相類功能裝置']}</td>
+							</tr>`;
+							$table.append(app);
+						}
+					});
+
 				});
 				
 				//bar
@@ -393,11 +419,6 @@
 						});
 					});
 
-				// $(document).ready(() => {
-				// 	$("#header-map").click(() => {
-				// 		$("html,body").animate({scrollTop:$("#maptitle").offset().top}, 0.1);
-				// 	});
-				// });
 				
 			</script>
 			<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRlKIf59NjeFSec1glgJ9FvL_jpBHMlq8&callback=initMap"
