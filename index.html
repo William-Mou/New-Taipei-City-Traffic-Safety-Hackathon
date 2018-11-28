@@ -1,0 +1,445 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<style>
+			#map {
+				position: relative;
+				height: 45rem;
+				width: 50%;
+				float: left;
+				display: block;
+			}
+
+			#maptitle {
+				position: relative;
+				height: 6rem;
+				/* text-align: center; */
+				background-color: #4686a0;
+				background-image: url("images/overlay2.png"), linear-gradient(45deg, #9dc66b 5%, #4fa49a
+30%, #4361c2);
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				padding-top: 1rem;
+			}
+			.title-text {
+				color: #ffffff;
+				margin: 0 0 0 0;
+			}
+			#choose-section {
+				margin: 0 1rem 0 1rem;
+				width: 10rem;
+			}
+
+			#background {
+				margin: 0;
+				padding: 0;
+				background-color: #4686a0;
+				color: rgba(255, 255, 255, 0.75);
+				background-attachment: fixed, fixed, fixed;
+				background-image: url("images/overlay2.png"), linear-gradient(45deg, #9dc66b 5%, #4fa49a
+				30%, #4361c2);
+				background-position: top left, center center, center center;
+				background-size: auto, cover, cover;
+				overflow: hidden;
+				position: relative;
+				text-align: center;
+			}
+
+			.baritem {
+				display: inline-block;
+			}
+
+			#bar {
+				margin: 0 auto;
+				padding: 0;
+			}
+
+				.navFixed {
+					z-index: 10;
+					position: fixed;
+					top: 0;
+					left: 0;
+					margin-top: 0;
+					min-width: 100%;
+					background-image: url("images/overlay2.png"), linear-gradient(45deg, #9dc66b 5%, #4fa49a
+					30%, #4361c2);
+					-webkit-box-shadow: 0px 8px 15px #333;
+					-moz-box-shadow: 0px 8px 15px #333;
+					box-shadow: 0px 8px 15px #333;
+					animation-name: b;
+					animation-duration: 1s;
+				}
+
+				@keyframes b{
+					from{
+						top: -30px;
+					}to{
+						top: 0px;
+					}
+				}
+
+			#tableinfo{
+				display: block;
+				width: 50%;
+				float: right;
+				height: 45rem;
+				margin: 0;
+				overflow: scroll;
+			}
+
+			#info {
+				height: 45rem;
+			}
+
+			td {
+				border-collapse: collapse;	
+			}
+
+			#injury_table_title {
+				width: 100%;
+				position: relative;
+				height: 6rem;
+				background-color: #4686a0;
+				background-image: url("images/overlay2.png"), linear-gradient(45deg, #9dc66b 5%, #4fa49a
+				30%, #4361c2);
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				padding-top: 1rem;
+			}
+
+			#inj-choose-section{
+				margin: 0 1rem 0 1rem;
+				width: 10rem;
+			}
+			#choose-section, #inj-choose-section{
+				color: #ffffffd2;
+			}
+
+		</style>
+		<title>新北市交通安全黑客松</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+			<section id= "background">
+					<ul id = "bar">
+						<li class="baritem"><a href="#background" class="scrolly">首頁</a></li>
+						<li class="baritem"><a href="#maptitle" class="scrolly">地圖</a></li>
+					</ul>
+			</section>
+		<!-- Header -->
+			<section id="header">
+				<div class="inner">
+					<span class="icon major fa-cloud"></span>
+					<h1> 新北市交通安全黑客松</h1>
+					<ul class="actions special">
+						<li><a href="#maptitle" class="button scrolly">Discover</a></li>
+					</ul>
+				</div>
+			</section>
+
+			<section id = "maptitle" class="inner">
+				<h3 class="title-text">新北市死亡車禍(A1)標示地圖</h3>
+				<select name="select" id="choose-section">
+
+				</select>
+			</section>
+
+			<section id="info">
+				<div id="map" class="col-6"></div>
+				<table id="tableinfo">
+					<tr>
+						<td>鄉鎮市</td>
+						<td>年齡</td>
+						<td>肇事原因</td>
+						<td>路段</td>
+						<td>飲酒情形</td>
+						<td>3c產品使用情形</td>
+					</tr>
+					<tr class="t">
+						<td>三芝區</td>
+						<td>10</td>
+						<td>67尚未發現肇事因素</td>
+						<td>三芝區淡金公路</td>
+						<td>非駕駛人，未檢測</td>
+						<td>非汽(機)車駕駛人</td>
+					</tr>
+				</table>
+			</section>
+
+			<section id="injury_table_title" class="inner">
+				<h3 class="title-text">新北市受傷車禍統計表格</h3>
+				<select name="select" id="inj-choose-section"></select>
+			</section>
+		<!-- Footer -->
+			<section id="footer">
+				<ul class="icons">
+					<li><a href="#" class="icon alt fa-facebook"><span class="label">Facebook</span></a></li>
+					<li><a href="https://github.com/William-Mou/New-Taipei-City-Traffic-Safety-Hackathon" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+					<li><a href="#" class="icon alt fa-envelope"><span class="label">Email</span></a></li>
+				</ul>
+				<ul class="copyright">
+					<li>&copy; Untitled</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+				</ul>
+			</section>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script>
+				let item = [
+					[25.14648515, 121.3974925],
+					[25.14648515, 121.3974925],
+					[25.25277517, 121.4723072],
+					[25.04716136, 121.4958358],
+					[25.07756976, 121.4877994],
+					[25.07705838, 121.4891292],
+					[25.06185976, 121.4968715],
+					[25.08822391, 121.4842807],
+					[24.89350902, 121.3341616],
+					[24.93358843, 121.3872468],
+					[24.93358843, 121.3872468],
+					[24.91672422, 121.351742],
+					[24.91672422, 121.351742],
+					[24.99104384, 121.4484002],
+					[24.97540724, 121.4429283],
+					[24.9666246, 121.4381969],
+					[24.95489012, 121.4131594],
+					[24.98984656, 121.4716831],
+					[24.98984656, 121.4716831],
+					[24.98184539, 121.4556834],
+					[24.96863814, 121.4261992],
+					[24.99450865, 121.5271271],
+					[24.99364848, 121.4971191],
+					[24.99364848, 121.4971191],
+					[24.99364848, 121.4971191],
+					[24.9997254, 121.5051015],
+					[25.00000643, 121.4770407],
+					[25.00115326, 121.4688719],
+					[25.01455813, 121.4848084],
+					[24.99467643, 121.509459],
+					[24.99760903, 121.5132761],
+					[24.99670803, 121.5119161],
+					[24.99334402, 121.4808264],
+					[24.99334402, 121.4808264],
+					[24.99299034, 121.510095],
+					[24.99299034, 121.510095],
+					[25.0470448, 121.4873304],
+					[25.00765294, 121.4950334],
+					[25.01077072, 121.4890542],
+					[25.11605116, 121.4197311],
+					[25.064813, 121.4455736],
+					[25.07514517, 121.4625495],
+					[25.07411103, 121.4352672],
+					[25.07411103, 121.4352672],
+					[25.07807998, 121.4560149],
+					[25.07807998, 121.4560149],
+					[25.07807998, 121.4560149],
+					[25.0179167, 121.5155044],
+					[25.01463637, 121.5213141],
+					[25.00052165, 121.5289191],
+					[25.28927602, 121.5378176],
+					[25.2908817, 121.5907785],
+					[24.95633705, 121.623663],
+					[25.0216032, 121.7246024],
+					[25.06085176, 121.6400359],
+					[25.04772196, 121.6190275],
+					[25.0634646, 121.635907],
+					[25.09697124, 121.642262],
+					[25.06966945, 121.638882],
+					[24.94168422, 121.6739198],
+					[24.87383596, 121.7642545],
+					[24.87383596, 121.7642545],
+					[24.9024216, 121.7188427],
+					[25.01814932, 121.4792429],
+					[25.01814932, 121.4792429],
+					[25.01814932, 121.4792429],
+					[25.0065121, 121.4510823],
+					[25.02098025, 121.4828314],
+					[25.0206133, 121.4548066],
+					[25.03371613, 121.4767546],
+					[25.00766649, 121.4681164],
+					[25.00026986, 121.4515655],
+					[25.01482911, 121.4517871],
+					[24.99617004, 121.4621764],
+					[25.02063114, 121.4744425],
+					[24.99962222, 121.432419],
+					[24.99962222, 121.432419],
+					[25.00409534, 121.4642391],
+					[25.0095977, 121.4710001],
+					[25.0095977, 121.4710001],
+					[25.00831994, 121.4716062],
+					[25.02052306, 121.4453189],
+					[25.02052306, 121.4453189],
+					[25.02052306, 121.4453189],
+					[24.9905491, 121.4311379],
+					[24.98564574, 121.4273848],
+					[25.02243041, 121.4855349],
+					[25.02243041, 121.4855349],
+					[25.02243041, 121.4855349],
+					[25.02815054, 121.4543825],
+					[25.02815054, 121.4543825],
+					[25.02815054, 121.4543825],
+					[25.11159785, 121.3100091],
+					[25.07877319, 121.3815887],
+					[25.06779638, 121.379042],
+					[25.2420348, 121.6334972],
+					[25.2420348, 121.6334972],
+					[25.06356305, 121.4351716],
+					[25.06625464, 121.4336479],
+					[25.11903109, 121.9158522],
+					[25.11903109, 121.9158522],
+					[25.15078066, 121.4594281],
+					[25.15078066, 121.4594281],
+					[25.18954072, 121.4264483],
+					[25.2251953, 121.4519727],
+					[24.99174801, 121.5332982],
+					[24.95204499, 121.5475286],
+					[24.96940597, 121.5154343],
+					[24.9812039, 121.5184628],
+					[24.97905658, 121.5239303],
+					[24.9614746, 121.5371469],
+					[24.97685729, 121.5482716],
+					[25.04486907, 121.444993],
+					[25.0397237, 121.4617547],
+					[25.0397237, 121.4617547],
+					[25.0397237, 121.4617547],
+					[25.04911545, 121.447365],
+					[25.05433815, 121.4431119],
+					[25.0234375, 121.4420665],
+					[25.05774745, 121.4421841],
+					[25.01743791, 121.4358314],
+					[25.108573, 121.789185],
+					[25.10929937, 121.7741226],
+					[25.18396859, 121.6866709],
+					[25.20355601, 121.6680952],
+					[25.01387373, 121.4235792],
+					[25.01440502, 121.395446],
+					[24.96388435, 121.3928561],
+					[24.9873364, 121.4244178],
+					[25.010968, 121.424276],
+					[24.94841155, 121.3688348],
+					[24.97300236, 121.4194322],
+					[24.97300236, 121.4194322],
+					[25.025172, 121.822022],
+					[25.08813926, 121.4664328],
+					[25.08824839, 121.4587235],
+					[25.09453469, 121.4839385],
+					[25.08463967, 121.455279],
+					[25.08463967, 121.455279],
+					[24.94967664, 121.3499562],
+					[24.941059, 121.3484618],
+					[24.96678812, 121.3314183]
+				]
+				let map = null;
+				console.log(item[1]);
+
+				// Initialize and add the map
+				function initMap() {
+					// The location of Uluru
+					let uluru = {
+						lat: 25.112683,
+						lng: 121.520430
+					};
+					// The map, centered at Uluru
+					map = new google.maps.Map(
+						document.getElementById('map'), {
+							zoom: 10,
+							center: uluru
+						});
+					// The marker, positioned at Uluru
+					for (let i = 0; i < item.length; i++) {
+						let uluru = {
+							lat: item[i][0],
+							lng: item[i][1]
+						};
+						let marker = new google.maps.Marker({
+							position: uluru,
+							map: map
+						});
+					}
+				}
+
+				// 選單
+				let select = $('#choose-section');
+				let inselect = $('#inj-choose-section');
+				let town = ['三芝區', '三峽區', '三重區', '中和區', '五股區', '八里區', '土城區', '坪林區', '平溪區', '新店區', '新莊區', '板橋區', '林口區', '樹林區', '永和區',
+			'汐止區', '泰山區', '淡水區', '深坑區', '烏來區', '瑞芳區', '石碇區', '石門區', '萬里區', '蘆洲區', '貢寮區', '金山區', '雙溪區', '鶯歌區'];
+				for (let i = 0; i < town.length; i++) {
+					select.append($('<option />').val(town[i]).text(town[i]));
+					inselect.append($('<option />').val(town[i]).text(town[i]));
+				}
+				
+				let index = 0;
+				let dead_list = [];
+				$.getJSON('township_dead.json',res =>{
+					res.forEach(element =>{
+						dead_list[index] = element;
+						index++;
+						// console.log(element);
+					})
+				});
+				
+
+				select.change(function(){
+					let key = $(this).val();
+					// console.log(key);
+					$.getJSON('新北市/' + key + '.json',(res)=>{
+						let bounds = new google.maps.LatLngBounds();
+						res.forEach(element => {
+							let latlng = new google.maps.LatLng(element[0], element[1]);
+							bounds.extend(latlng);
+
+							map.fitBounds(bounds);
+							// console.log(bounds);
+						});
+					});
+					let $table = $('#tableinfo');
+
+					for(let i = 0; i < $('.t').length;i++){
+						$('.t').remove();
+					}
+					// console.log($('.t'));
+					dead_list.forEach(element =>{
+						if(element['鄉鎮市'] === key){
+							
+							
+							let app = `<tr class='t'>
+								<td>${element['鄉鎮市']}</td>
+								<td>${element['年齡']}</td>
+							<td>${element['肇事原因']}</td>
+							<td>${element['路段']}</td>
+							<td>${element['飲酒情形']}</td>
+							<td>${element['行動電話、電腦或其他相類功能裝置']}</td>
+							</tr>`;
+							$table.append(app);
+						}
+					});
+
+				});
+				
+				//bar
+				$(function () {
+						$(window).scroll(function () {
+							if ($(this).scrollTop() > 30) {          /* 要滑動到選單的距離 */
+								$('#bar').addClass('navFixed');   /* 幫選單加上固定效果 */
+							} else {
+								$('#bar').removeClass('navFixed'); /* 移除選單固定效果 */
+							}
+						});
+					});
+
+			</script>
+			<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRlKIf59NjeFSec1glgJ9FvL_jpBHMlq8&callback=initMap"
+				 type="text/javascript"></script>
+
+	</body>
+</html>
