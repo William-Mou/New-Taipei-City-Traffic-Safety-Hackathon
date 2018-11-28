@@ -116,7 +116,16 @@
 			#choose-section, #inj-choose-section{
 				color: #ffffffd2;
 			}
-
+			
+			#inj_table {
+				width: 100%;
+				display: block;
+				height: 30rem;
+				overflow: scroll;
+			}
+				tbody {
+					width: 100%;
+				}
 		</style>
 		<title>新北市交通安全黑客松</title>
 		<meta charset="utf-8" />
@@ -175,6 +184,20 @@
 				<h3 class="title-text">新北市受傷車禍統計表格</h3>
 				<select name="select" id="inj-choose-section"></select>
 			</section>
+
+			<table id="inj_table">
+				<tr>
+					<td>鄉鎮市</td>
+					<td>年齡</td>
+					<td>肇事原因</td>
+					<td>路段</td>
+					<td>飲酒情形</td>
+					<td>3c產品使用情形</td>
+				</tr>
+				<tr class="it">
+
+				</tr>
+			</table>
 		<!-- Footer -->
 			<section id="footer">
 				<ul class="icons">
@@ -340,7 +363,7 @@
 					[24.96678812, 121.3314183]
 				]
 				let map = null;
-				console.log(item[1]);
+				// console.log(item[1]);
 
 				// Initialize and add the map
 				function initMap() {
@@ -380,6 +403,7 @@
 				
 				let index = 0;
 				let dead_list = [];
+
 				$.getJSON('township_dead.json',res =>{
 					res.forEach(element =>{
 						dead_list[index] = element;
@@ -387,7 +411,6 @@
 						// console.log(element);
 					})
 				});
-				
 
 				select.change(function(){
 					let key = $(this).val();
@@ -399,7 +422,6 @@
 							bounds.extend(latlng);
 
 							map.fitBounds(bounds);
-							// console.log(bounds);
 						});
 					});
 					let $table = $('#tableinfo');
@@ -425,6 +447,55 @@
 					});
 
 				});
+
+				let $injselect = $('#inj-choose-section');
+				$injselect.change(()=>{
+					let $injtable = $('#inj_table');
+					let key = $injselect.val();
+					// console.log(key);
+
+					for (let i = 0; i < $('.it').length; i++) {
+						$('.it').remove();
+					}
+					
+					$.getJSON('Township.json', res => {
+						res.forEach(element => {
+							if (element['鄉鎮市'] === key) {
+								let app = `<tr class='it'>
+								<td>${element['鄉鎮市']}</td>
+								<td>${element['年齡']}</td>
+								<td>${element['肇事原因']}</td>
+								<td>${element['路段']}</td>
+								<td>${element['飲酒情形']}</td>
+								<td>${element['行動電話、電腦或其他相類功能裝置']}</td>
+							</tr>`;
+								$injtable.append(app);
+							}
+						});
+					});
+
+		
+				});
+
+				function initinfo(){
+					$injtable = $('#inj_table');
+					$.getJSON('Township.json', res => {
+						res.forEach(element => {
+							if (element['鄉鎮市'] === '三芝區') {
+							let app = `<tr class='it'>
+								<td>${element['鄉鎮市']}</td>
+								<td>${element['年齡']}</td>
+								<td>${element['肇事原因']}</td>
+								<td>${element['路段']}</td>
+								<td>${element['飲酒情形']}</td>
+								<td>${element['行動電話、電腦或其他相類功能裝置']}</td>
+							</tr>`;
+							$injtable.append(app);
+							}
+						});
+					});
+				}
+				initinfo();
 				
 				//bar
 				$(function () {
