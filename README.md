@@ -1,8 +1,18 @@
 # New-Taipei-City-Traffic-Safety-Hackathon
-For New Taipei City Traffic Safety Hackathon
 
-It's a project that we want to visit a contest.
-We try to mine traffic data from New Taipei City.
+## 新北市交通安全黑客松網站
 
-By process data, we wanna create a website which could present information with visualize! 
-Let everyone know that what happen aorund the side, and try to avoid them!
+[網址](http://williammou.info/New-Taipei-City-Traffic-Safety-Hackathon/)
+
+## 首頁
+
+![id](https://i.imgur.com/vgIDusZ.png)
+
+## 地圖標記
+
+![id](https://i.imgur.com/rfoaNTS.png)
+
+## 表格
+
+![id](https://i.imgur.com/rgIiUrC.png)
+
