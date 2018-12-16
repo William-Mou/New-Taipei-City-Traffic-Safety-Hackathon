@@ -414,7 +414,6 @@
 
 				select.change(function(){
 					let key = $(this).val();
-					// console.log(key);
 					$.getJSON('新北市/' + key + '.json',(res)=>{
 						let bounds = new google.maps.LatLngBounds();
 						res.forEach(element => {
@@ -458,7 +457,7 @@
 						$('.it').remove();
 					}
 					
-					$.getJSON('Township.json', res => {
+					$.getJSON('傷亡/' + key + '.json', res => {
 						res.forEach(element => {
 							if (element['鄉鎮市'] === key) {
 								let app = `<tr class='it'>
@@ -500,10 +499,10 @@
 				//bar
 				$(function () {
 						$(window).scroll(function () {
-							if ($(this).scrollTop() > 30) {          /* 要滑動到選單的距離 */
-								$('#bar').addClass('navFixed');   /* 幫選單加上固定效果 */
+							if ($(this).scrollTop() > 30) {  
+								$('#bar').addClass('navFixed');
 							} else {
-								$('#bar').removeClass('navFixed'); /* 移除選單固定效果 */
+								$('#bar').removeClass('navFixed'); 
 							}
 						});
 					});
