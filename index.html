@@ -25,13 +25,14 @@
 			.title-text {
 				color: #ffffff;
 				margin: 0 0 0 0;
+				line-height: 5rem;
 			}
 			#choose-section {
 				margin: 0 1rem 0 1rem;
 				width: 10rem;
 			}
 
-			#background {
+			.background {
 				margin: 0;
 				padding: 0;
 				background-color: #4686a0;
@@ -126,6 +127,25 @@
 				tbody {
 					width: 100%;
 				}
+
+			#flotcontainer {
+				margin: 0;
+				padding: 0;
+				display: flex;
+				width: 500px;
+				height: 400px;
+			}
+			#flotcontainer2 {
+				margin: 0;
+				padding: 0;
+				display: flex;
+				width: 500px;
+				height: 400px;
+			}
+			#chart_list {
+				width: 100%;
+				display: inline-flex;
+			}
 		</style>
 		<title>事故地圖通</title>
 		<meta charset="utf-8" />
@@ -134,7 +154,7 @@
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
-			<section id= "background">
+			<section class= "background">
 					<ul id = "bar">
 						<li class="baritem"><a href="#background" class="scrolly">首頁</a></li>
 						<li class="baritem"><a href="#maptitle" class="scrolly">地圖</a></li>
@@ -198,6 +218,18 @@
 
 				</tr>
 			</table>
+
+			<section class = "inner background">
+				<h3 class = "title-text">圓餅圖呈現</h3>
+			</section>
+			<div id="chart_list">
+				<div id="legendPlaceholder"></div>
+				<div id="flotcontainer"></div>
+
+				<div id="legendPlaceholder2"></div>
+				<div id="flotcontainer2"></div>
+			</div>
+			
 		<!-- Footer -->
 			<section id="footer">
 				<ul class="icons">
@@ -451,7 +483,6 @@
 				$injselect.change(()=>{
 					let $injtable = $('#inj_table');
 					let key = $injselect.val();
-					// console.log(key);
 
 					for (let i = 0; i < $('.it').length; i++) {
 						$('.it').remove();
@@ -506,10 +537,45 @@
 							}
 						});
 					});
-
+				
+				//pie chart
+				$(function () {
+					let data = [
+						{label: "20歲以下", data: 0.6},
+						{label: "20歲至30歲", data: 16},
+						{label: "30歲至40歲", data: 8},
+						{label: "40歲至50歲", data: 9},
+						{label: "50歲至60歲", data: 7},
+						{label: "60歲以上", data: 59}
+					];
+					let options = {
+						series: {
+						pie: {show: true}
+						},
+						legend: {show: false}
+					};
+					$.plot($("#flotcontainer"), data, options);
+				});
+				$(function () {
+					let data = [
+						{label: "未飲酒", data: 81},
+						{label: "有飲酒", data: 16},
+						{label: "不明", data: 2}
+					];
+					let options = {
+						series: {
+						pie: {show: true}
+						},
+						legend: {show: false}
+					};
+					$.plot($("#flotcontainer2"), data, options);
+				});
 			</script>
 			<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRlKIf59NjeFSec1glgJ9FvL_jpBHMlq8&callback=initMap"
 				 type="text/javascript"></script>
+			<script src="http://www.flotcharts.org/flot/jquery.flot.js"></script>
+			<script src="http://www.flotcharts.org/flot/jquery.flot.pie.js"></script>
 
 	</body>
+	
 </html>
